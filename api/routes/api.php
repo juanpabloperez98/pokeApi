@@ -35,3 +35,11 @@ Route::group([
 ], function($router){
     Route::post('user_info', 'App\Http\Controllers\UserController@add_info_profile');
 });
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'pokeapi'
+], function($router){
+    Route::get('get_characters', 'App\Http\Controllers\pokeApiController@get_characters');
+    Route::get('get_character_specific/{name}', 'App\Http\Controllers\pokeApiController@get_character_specific');
+});
