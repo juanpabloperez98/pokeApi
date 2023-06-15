@@ -27,15 +27,27 @@ export class CharacterSpecificComponent implements OnInit {
         "id": res.id,
         "weight": res.weight,
         "base_experience": res.base_experience,
-        "sprites": res["sprites"]["front_default"]
+        "sprites": res["sprites"]["front_default"],
+        "fav": res.fav
       }
-      console.log(res);
-      console.log(this.character);
     }, (err) => {
       console.log(err);
     })
   }
 
+
+  addFav(name: string){
+    let body = {
+      "name": name
+    }
+    this.homeService.add_fav('pokeapi/add_favorito', body)
+    .subscribe((res:any) => {
+      alert("Agregado a favoritos exitosamente!")
+      this.character!.fav = true;
+    },(err:any) => {
+      console.log(err);
+    })
+  }
 
 
 

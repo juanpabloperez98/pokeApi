@@ -44,8 +44,22 @@ export class HomeService {
     return this.httpClient.get(url, {headers: securityHeaders});
   }
 
-  add_additional_info( endPoint: string ){
+  add_additional_info( endPoint: string, body: Record<string, string | number | any> ){
+    let securityHeaders = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    const url = `${this.url}/${endPoint}`;
+    return this.httpClient.post(url, body, {headers: securityHeaders});
+  }
 
+  add_fav( endPoint: string, body: Record<string, string | number | any> ){
+    let securityHeaders = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    const url = `${this.url}/${endPoint}`;
+    return this.httpClient.post(url, body, {headers: securityHeaders});
   }
 
 }

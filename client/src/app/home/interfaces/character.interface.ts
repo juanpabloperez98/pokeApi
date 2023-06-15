@@ -4,4 +4,5 @@ export interface characters{
   base_experience: number,
   weight: number,
   sprites:string
+  fav: boolean
 }

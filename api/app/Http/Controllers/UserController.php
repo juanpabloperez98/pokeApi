@@ -22,7 +22,7 @@ class UserController extends Controller
     public function add_info_profile(Request $request){
         $validator = Validator::make($request->all(),[
             'address' => 'required|string',
-            'birthdate' => 'required|date_format:Y/m/d',
+            'birthdate' => 'required|date_format:Y-m-d',
             'city' => 'required|string'
         ]);
         if($validator->fails()){

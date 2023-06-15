@@ -43,4 +43,6 @@ Route::group([
 ], function($router){
     Route::get('get_characters', 'App\Http\Controllers\pokeApiController@get_characters');
     Route::get('get_character_specific/{name}', 'App\Http\Controllers\pokeApiController@get_character_specific');
+    Route::post('add_favorito', 'App\Http\Controllers\pokeApiController@add_to_favoritos');
+    Route::get('get_favoritos', 'App\Http\Controllers\pokeApiController@get_favoritos');
 });

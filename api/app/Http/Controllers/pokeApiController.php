@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorito;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
-
+// use App\Models\
 
 class pokeApiController extends Controller
 {
@@ -39,6 +40,7 @@ class pokeApiController extends Controller
     }
 
     public function get_character_specific(Request $request, $name){
+        $user = auth()->user();
         $fields = [
             "name",
             "weight",
@@ -54,6 +56,36 @@ class pokeApiController extends Controller
             return response()->json(['message' => 'Failed to response request'], 400);
         }
         $results = array_intersect_key($data, array_flip($fields));
+        $results["fav"] = false;
+        $fav = Favorito::where('id_usuario',$user->id)->where('ref_api', $results['name'])->first();
+        if($fav){
+            $results["fav"] = true;
+        }
         return response()->json($results);
+    }
+
+    public function add_to_favoritos(Request $request){
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string',
+        ]);
+        if($validator->fails()){
+            return response()->json($validator->errors(),400);
+        }
+        $user = auth()->user();
+        $fav = Favorito::where('ref_api',$request->get('name'))->where('id_usuario',$user->id)->first();
+        if($fav){
+            return response()->json(["msg" => "Already fav"], 400);
+        }
+        $fav = Favorito::create([
+            "id_usuario" => $user->id,
+            "ref_api" => $request->get('name')
+        ]);
+        return response()->json(["msg" => "Add to favorite"]);
+    }
+
+    public function get_favoritos(Request $request){
+        $user = auth()->user();
+        $fav = Favorito::where('id_usuario',$user->id)->get();
+        return response()->json($fav);
     }
 }

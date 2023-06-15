@@ -9,9 +9,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of characters">
-        <td>{{ item.name }}</td>
+        <td>{{ item.ref_api }}</td>
         <td>
-          <a href="home/character/{{item.name}}" class="btn btn-primary ms-2">Ver detalle</a>
+          <a href="home/character/{{item.ref_api}}" class="btn btn-primary ms-2">Ver detalle</a>
         </td>
       </tr>
     </tbody>

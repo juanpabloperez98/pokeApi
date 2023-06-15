@@ -5,6 +5,7 @@ import { CharactersComponent } from './home/characters/characters.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CharacterSpecificComponent } from './home/character-specific/character-specific.component';
 import { ProfileComponent } from './home/profile/profile.component';
+import { FavoritosComponent } from './home/favoritos/favoritos.component';
 
 
 export const Approutes: Routes = [
@@ -36,6 +37,12 @@ export const Approutes: Routes = [
       canActivate:[AuthGuard],
       pathMatch:'full'
   },
+  {
+    path:'home/favoritos',
+    component: FavoritosComponent,
+    canActivate:[AuthGuard],
+    pathMatch:'full'
+},
   {
       path: '**',
       redirectTo: '/auth/login'

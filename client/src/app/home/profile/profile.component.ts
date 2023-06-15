@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private homeService: HomeService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -48,31 +49,22 @@ export class ProfileComponent implements OnInit {
         'city': this.profileForm.get('city')!.value,
         'birthdate': this.profileForm.get('birthdate')!.value
       }
-     /*  this.authService.postService('auth/register', body)
-        .subscribe((res: any) => {
-          alert("Usuario Registrado correctamente")
-          this.router.navigate(['auth/login']);
-        },(err: any) => {
-          console.log(err);
-          alert("Error en la solicitud")
-        }); */
+      this.homeService.add_additional_info('user/user_info', body)
+      .subscribe((res) => {
+        alert("Información actualizada correctamente")
+        this.router.navigate(['home/characters']);
+      },(err) => {
+        console.log(err);
+      })
     }else{
-      /* if(this.registerForm.hasError("mismatch") && this.registerForm.get('confirmPassword')!.dirty){
-        alert("Contraseñas no coinciden")
-      }
-      Object.keys(this.registerForm.controls).forEach(key => {
-        const controlErrors: any = this.registerForm.get(key)!.errors;
+      Object.keys(this.profileForm.controls).forEach(key => {
+        const controlErrors: any = this.profileForm.get(key)!.errors;
         if (controlErrors != null) {
           Object.keys(controlErrors).forEach(keyError => {
             let msg = `${key}: ${keyError} \n`
             alert(msg);
           });
         }})
-      } */
+      }
     }
-
-  }
-
-
-
 }

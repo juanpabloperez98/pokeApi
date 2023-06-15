@@ -5,6 +5,7 @@ import { CharacterSpecificComponent } from './character-specific/character-speci
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
 
 
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CharacterSpecificComponent,
     NavbarComponent,
     ProfileComponent,
+    FavoritosComponent,
   ],
   imports: [
     CommonModule,
