@@ -33,4 +33,9 @@ class UserController extends Controller
         $user->update($request->all());
         return response()->json(['message' => 'Info updated successfully']);
     }
+
+    function get_user_info(){
+        $user = auth()->user();
+        return response()->json($user);
+    }
 }

@@ -33,6 +33,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'user'
 ], function($router){
+    Route::get('get_user_info', 'App\Http\Controllers\UserController@get_user_info');
     Route::post('user_info', 'App\Http\Controllers\UserController@add_info_profile');
 });
 

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url('./assets/background.jpg');
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.max-width{
+  max-width: 400px;
+  margin: 100px auto;
+}
+.color-red{
+  background-color: #CD5C5C;
+}
+form{
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+}

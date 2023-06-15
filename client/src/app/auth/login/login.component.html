@@ -1,0 +1,19 @@
+<div class="max-width">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" id="email" formControlName="email" class="form-control" />
+      <label class="form-label" for="email">Email</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="password" formControlName="password" class="form-control" />
+      <label class="form-label" for="password">Contraseña</label>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn color-red btn-block mb-4">Iniciar Sesion</button>
+    <a href="/auth/signup"  class="btn color-blue ms-3 mb-4">Registrarse</a>
+  </form>
+</div>

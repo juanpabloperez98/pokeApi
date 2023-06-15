@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="max-width">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- Address input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="registerName" formControlName="address" class="form-control" />
+      <label class="form-label" for="registerName">Direccion</label>
+    </div>
+
+    <!-- Address input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="city" formControlName="city" class="form-control" />
+      <label class="form-label" for="city">Ciudad</label>
+    </div>
+
+    <!-- Address input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="birthdate" formControlName="birthdate" class="form-control" placeholder="YYYY/MM/DD" />
+      <label class="form-label" for="birthdate">Ciudad</label>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn color-red btn-block mb-4">Editar</button>
+  </form>
+</div>
+

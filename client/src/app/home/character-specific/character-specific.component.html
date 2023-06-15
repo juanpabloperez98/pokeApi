@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="max-width">
+  <div *ngIf="character != null" class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="character.sprites" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ character.id }} - {{ character.name }}</h5>
+      <ul>
+        <li>base_experience: {{ character.base_experience }}</li>
+        <li>weight: {{ character.weight }}</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Añadir a favoritos</a>
+    </div>
+  </div>
+</div>
